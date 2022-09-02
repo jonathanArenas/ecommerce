@@ -54,7 +54,7 @@
 .Top__user .list__item .item-link:hover{
     color: #D10024;
 }
-.Top__user .list__item .item-link .isActive{
+.Top__user .list__item .item-link-isActive{
     color: #d10000;
 }
 

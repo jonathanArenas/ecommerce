@@ -2,6 +2,7 @@ import CardProducts from '../CardProducts/CardProducts'
 import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
+import './ListCards.css'
 
 function ListCards({ data }) {
  
@@ -54,12 +55,12 @@ function ListCards({ data }) {
             previousLabel='previous'
             renderOnZeroPageCount={null}
             containerClassName='pagination  justify-content-center'
-            breakClassName = 'page-link'
-            pageClassName='page-item'
-            pageLinkClassName='page-link'
-            previousLinkClassName='page-link'
-            nextLinkClassName='page-link'
-            activeClassName='page-item active'
+            breakClassName = 'page-link text-danger'
+            pageClassName='page-item '
+            pageLinkClassName='page-link text-danger'
+            previousLinkClassName='page-link text-danger'
+            nextLinkClassName='page-link text-danger'
+            activeClassName='page-item activate'
           />
             </div>
           

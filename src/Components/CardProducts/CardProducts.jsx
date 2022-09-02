@@ -5,16 +5,14 @@ const CardProducts = ({ product_name, description, image, images, category, pric
   return (
 
     <div className="product-card">
-  <div className="badge">Hot</div>
   <div className="product-tumb">
   <img src={(image !== undefined ) ? image: (image === undefined) ? ProductNotFound : images } alt="Product" className="img-responsive" />
   </div>
   <div className="product-details">
     <span className="product-catagory">{category} </span>
     <div className='product-name'>
-        <h4><a href>{product_name}</a></h4>
+        <h4><a to="#">{product_name}</a></h4>
     </div>
-    
     <div className='description'>
        <p className='line-clamp'>{description}</p>
     </div>

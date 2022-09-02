@@ -1,8 +1,10 @@
 import { useProductContext } from '../../context/ProductsContext'
 import './HeaderBarCenter.css'
 import { useState } from 'react'
+import { Link, useLocation} from 'react-router-dom'
 
 function HeaderBarCenter() {
+  const location = useLocation();
   const context = useProductContext()
   const [text, setText] = useState();
   const handleSearch = (e) => {
@@ -15,12 +17,18 @@ function HeaderBarCenter() {
       <div className='container'>
       <div className='Header__BarCenter'>
         <div className='BarCenter__Logo'>
-          <a href="#">SevenEleven</a>
+          <Link to='/'>SevenEleven</Link>
         </div>
-        <form className='BarCenter__search' onSubmit={handleSearch}>
-          <input type="text" placeholder='search..' onChange={(e) =>{ setText(e.target.value)}} />
-          <input type="submit" value="Search" className='btn-search'/>
-        </form>
+        {( location.pathname.includes('/login') || location.pathname.includes('/signup') || location.pathname.includes('/create-product') || location.pathname.includes('/product'))
+        ? 
+        (<></>)
+        :
+        (<form className='BarCenter__search' onSubmit={handleSearch}>
+        <input type="text" placeholder='search..' onChange={(e) =>{ setText(e.target.value)}} />
+        <input type="submit" value="Search" className='btn-search'/>
+      </form>) 
+        }
+        
         <div className='BarCenter__car'>
 
         </div>

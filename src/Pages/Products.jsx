@@ -1,11 +1,15 @@
-import { useState } from 'react'
+
 import Loading from '../Components/Loading/Loading'
-import useProducts from '../Hooks/useProducts'
 import ListCards from '../Components/ListCards/ListCards'
 import { useProductContext } from '../context/ProductsContext'
+import { AuthContext } from '../context/Auth.jsx';
+import { useContext } from 'react';
+import { Link} from 'react-router-dom'
+
 
 const Products = () => {
     const context = useProductContext()
+    const {isAuth, user} = useContext(AuthContext);
     //const [query, setQuery] = useState(null)
     //const { data, loading } = useProducts(query)
    
@@ -27,6 +31,25 @@ const Products = () => {
                         <h3 className='fs-3'></h3>
                     </div>
                 </div>
+                {
+                    (isAuth && user.role === 'ADMIN' )
+                    ?
+                    (
+                        <div className='row'>
+                            <div className='col-12 d-flex justify-content-end'>
+                                <Link to='/create-product' className='btn btn-sm btn-danger '>New Product</Link>
+                            </div>
+                        </div>
+                    )
+                    
+                    :
+                    (
+                        <div>
+
+                        </div>
+
+                    )
+                }
                 <div className='container-products'>
                 {context.loading ? <Loading /> : <ListCards data={
     

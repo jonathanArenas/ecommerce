@@ -5,7 +5,7 @@
   .product-card {
     width: 100%;
     position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
+    box-shadow: 0 2px 7px #c5c5c5;
     margin: 50px auto;
     border-radius: 5px 5px 5px 5px;
 }
@@ -93,7 +93,7 @@
 
 .product-price {
     font-size: 18px;
-    color: #fbb72c;
+    color: #505050;
     font-weight: 600;
 }
 
@@ -118,5 +118,17 @@
 }
 
 .product-bottom-details .product-links a:hover {
-    color: #fbb72c;
+    color: #D10024;
+}
+
+@media all and (max-width: 767px){
+   
+    .product-details .product-name h4 a {
+        font-size: 14px;
+    }
+
+    .product-details p {
+        font-size: 12px;
+    }
+
 }

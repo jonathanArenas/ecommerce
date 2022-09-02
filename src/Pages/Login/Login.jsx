@@ -1,8 +1,10 @@
+import './Login.css'
 import { useContext } from 'react';
-import useForm from '../hooks/useForm';
-import apiEcomerce from '../Services/apiEcomerce';
-import { AuthContext } from '../context/Auth.jsx'
-import { useNavigate } from 'react-router-dom'
+import useForm from '../../hooks/useForm';
+import apiEcomerce from '../../Services/apiEcomerce';
+import { AuthContext } from '../../context/Auth.jsx'
+import { useNavigate, Link } from 'react-router-dom'
+
 
 function Login() {
   const { loginUser } = useContext(AuthContext)
@@ -14,7 +16,7 @@ function Login() {
 
       if (result.status === 200) {
         loginUser(result.data.token)
-        navigate('/dashboard')
+        navigate('/')
       }
     } catch (error) {
       alert('Ocurrió un error: ' + error.message);
@@ -28,7 +30,11 @@ function Login() {
   });
 
   return (
-    <form className='container'>
+    
+    <div className='container'>
+      <div className='row'>
+      <div className='col-6'>
+      <form>
       <div className='mt-5 mb-3'>
         <label htmlFor='exampleFormControlInput1' className='form-label'>
           Email address
@@ -59,13 +65,27 @@ function Login() {
         </div>
       </div>
       <div className='row'>
-        <div className='col-8 offset-2'>
-          <button type='button' className='btn btn-primary w-100 bg-danger' onClick={handleSubmit}>
+        <div className='col-12 d-flex justify-content-end'>
+          <button type='button' className='btn btn-danger' onClick={handleSubmit}>
             Login
           </button>
         </div>
       </div>
     </form>
+      </div>
+      <div className='col-6 mt-5'>
+          <div className='DontAccount'>
+
+              <h2>Welcome to login</h2>
+              <p className='justify-center'>Don't have an account?</p>
+            <div>
+              <Link to='/signup' className='signup'>Sign Up</Link>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    
   );
 }
 

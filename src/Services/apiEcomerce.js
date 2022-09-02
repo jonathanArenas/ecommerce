@@ -12,6 +12,9 @@ const apiEcomerce = {
     },
     registerUser: async(user) =>{
         return await axios.post(`${apiURL}signup`, user)
+    },
+    registerItem: async(product, header) =>{
+        return await axios.post(`${apiURL}item`, product, {headers:{'Authorization': `JWT ${header}`} })
     }
 } 
 export default apiEcomerce

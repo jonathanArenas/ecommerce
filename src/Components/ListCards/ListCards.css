@@ -1,0 +1,4 @@
+.pagination .page-item .active{
+    background: red;
+    color: white;
+}
